@@ -15,7 +15,7 @@ if($result = $mysqli->query($query))
 {
     printf("Username Saved.");
 
-    $result->close();   
+    $result->free();   
 }
 else if ($username == "")
 {

@@ -22,15 +22,22 @@ if($message == "")
 }
 
 //check if the username is in the user_id list and submit the post if username is registered in the data
-$query = "SELECT user_id FROM Users WHERE user_id ='$username'";
+$query = "SELECT user_id
+    FROM Posts
+    WHERE EXISTS
+    SELECT user_id FROM Posts WHERE userId == '$username'";
 $insert = "INSERT INTO Posts (author_id, content) VALUES ('$message', '$username')";
 
-if($result = $mysqli->query($query))
+$result = $mysqli->query($query);
+
+
+if ($result == TRUE)
 {
-    if($result = $mysqli->query($insert))
+    if($mysqli->query($insert))
     {
         echo "Post saved!";
     }
+    $result->free();
 }
 else
 {
