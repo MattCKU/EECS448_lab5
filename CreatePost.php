@@ -28,10 +28,10 @@ $query = "SELECT user_id
     SELECT user_id FROM Posts WHERE userId == '$username'";
 $insert = "INSERT INTO Posts (author_id, content) VALUES ('$message', '$username')";
 
-$result = $mysqli->query($query);
 
 
-if ($result == TRUE)
+
+if ( $mysqli->query($query))
 {
     if($mysqli->query($insert))
     {
