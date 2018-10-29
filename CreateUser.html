@@ -5,14 +5,9 @@
     </head>
     <body>
         <h1>Input Username:</h1>
-        <form action="/CreateUser.php">
-            Username:<br>
-            <input type="text" name="firstname">
-            <br>
-            <input type="submit" value="Submit">
-          </form> 
-          <?php 
-            echo "Hello World!";
-            ?>
+        <form action="CreateUser.php" method="post">
+               Username <input type="text" name="username"><br>
+                <input type="submit">
+
     </body>
 </html>
